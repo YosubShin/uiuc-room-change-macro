@@ -1,4 +1,3 @@
-
 function injectJs(srcFile) {
     var scr = document.createElement('script');
     scr.src = srcFile;
@@ -12,10 +11,10 @@ if (document.URL.substring(0, dsturl.length) == dsturl) {
 
 	injectJs(chrome.extension.getURL('inject.js'));
 		if (localStorage.getItem('macro') == "true") {
-			$("#ctl00_ButtonPanel").append('<a href="#" onclick="macrostop();" style="font-size:15px; color:stop;"><img src="' + chrome.extension.getURL('macrostop.gif') + '"></a>');
+			$("#ctl00_ButtonPanel").append('<input type="button" onclick="macrostop();" class="ui-continue-button ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">');
 			
 		} else {
-			$("#ctl00_ButtonPanel").append('<a href="#" onclick="macro();" style="font-size:15px; color:green;"><img src="' + chrome.extension.getURL('macro.gif') + '"></a>');
+			$("#ctl00_ButtonPanel").append('<input type="button" onclick="macro();" class="ui-continue-button ui-button ui-widget ui-state-default ui-corner-all" role="button" aria-disabled="false">');
 		}
 
 		if (localStorage.getItem('macro') == "true") {
@@ -29,6 +28,7 @@ if (document.URL.substring(0, dsturl.length) == dsturl) {
 			if (succeed == true) {
 				localStorage.removeItem('macro');
 				//TODO play sound or notify me somehow!!!!
+				alert("Your room is there!");
 			} else {
 				// Reload if the room is not found
 				setTimeout(function() { 
