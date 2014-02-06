@@ -1,18 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "Korail Macro",
-  "description": "KORAIL 자동 예약 매크로",
+  "name": "UIUC Room Change Macro",
+  "description": "Enables one to search for new openings for the university housing",
   "version": "1.0",
   "permissions": [
-    "http://www.korail.com/"
+    "https://starrez.housing.illinois.edu/"
   ],
   "content_scripts": [ {
     "all_frames": true,
     "js": ["jquery-1.11.0.min.js", "content.js"],
-    "matches": ["http://www.korail.com/*"],
+    "matches": ["https://starrez.housing.illinois.edu/*"],
     "run_at": "document_end"
   }],
   "web_accessible_resources": [
-    "inject.js", "macro.gif", "macrostop.gif"
+    "inject.js", "song.mp3"
   ]
 }
